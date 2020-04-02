@@ -21,7 +21,7 @@
 			echo '<h3>' . $job['salary'] . '</h3>';
 			echo '<p>' . nl2br($job['description']) . '</p>';
 
-			echo '<a class="more" href="index.php?function=apply?id=' . $job['id'] . '">Apply for this job</a>';
+			echo '<a class="more" href="index.php?function=apply&&id=' . $job['id'] . '">Apply for this job</a>';
 
 			echo '</div>';
 			echo '</li>';

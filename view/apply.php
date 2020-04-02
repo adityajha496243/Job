@@ -53,15 +53,16 @@
 
 	}
 	else {
+		$pdo = new PDO("mysql:host=localhost;dbname=job","root","");
+		$getId = $_GET['id'];
+			$fetch = $pdo->prepare('SELECT * FROM job WHERE id = :id');
+			$fetch->execute(array('id' => $getId));
+			$job = $fetch->fetchAll();
 
-			$stmt = $pdo->prepare('SELECT * FROM job WHERE id = :id');
-
-			$stmt->execute($_GET);
-
-			$job = $stmt->fetch();
+			foreach ($job as $value) {
 			?>
 
-			<h2>Apply for <?=$job['title'];?></h2>
+			<h2>Apply for <?php echo $value['title']; }?></h2>
 
 			<form action="apply.php" method="POST" enctype="multipart/form-data">
 				<label>Your name</label>
