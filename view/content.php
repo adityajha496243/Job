@@ -1,31 +1,35 @@
-	<main class="sidebar">
+<main class="sidebar">
 
-		<section class="left">
-			<ul>
-				<li  class="current" ><a href="index.php?function=it">IT</a></li>
-				<li><a href="index.php?function=hr">Human Resources</a></li>
-				<li><a href="index.php?function=sales">Sales</a></li>
-			</ul>
-		</section>
+	<section class="left">
+		<ul>
+			<li  class="current" ><a href="index.php?function=it">IT</a></li>
+			<li><a href="index.php?function=hr">Human Resources</a></li>
+			<li><a href="index.php?function=sales">Sales</a></li>
+		</ul>
+	</section>
 
-		<section class="right">
+	<section class="right">
 
-			<h1><?php echo $arr['name']?> Jobs</h1>
+		<?php 
+		echo "<h1>".$name['name'] .' '."Jobs</h1>";
 
-			<ul class="listing">
+		foreach ($arr as $job) {
+			echo '<li>';
 
-				<?php
-				//include ('controller/home.php');
+			echo '<div class="details">';
+			echo '<h2>' . $job['title'] . '</h2>';
+			echo '<h3>' . $job['salary'] . '</h3>';
+			echo '<p>' . nl2br($job['description']) . '</p>';
 
-				if(isset($_GET['function']) && $_GET['function']){
-					it();
-				}else{
-					echo "Something went wrong";
-				}
+			echo '<a class="more" href="index.php?function=apply?id=' . $job['id'] . '">Apply for this job</a>';
 
-				?>
+			echo '</div>';
+			echo '</li>';
+		}
 
-			</ul>
+		?>
+		<ul class="listing">
+		</ul>
 
-		</section>
-	</main>
+	</section>
+</main>

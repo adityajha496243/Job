@@ -18,8 +18,9 @@ class homeController{
 	}
 	function it(){
 		$arr=$this->obj->category(1);
+		$name = $this->obj->getName(1);
 		include('view/header.php');
-		include('view/content.php?'.$arr);
+		include('view/content.php');
 		include('view/footer.php');
 	}
 	function hr(){

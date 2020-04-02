@@ -37,22 +37,12 @@ class homeModel{
 
 		$stmt->execute($values);
 
-
-		foreach ($stmt as $job) {
-			echo '<li>';
-
-			echo '<div class="details">';
-			echo '<h2>' . $job['title'] . '</h2>';
-			echo '<h3>' . $job['salary'] . '</h3>';
-			echo '<p>' . nl2br($job['description']) . '</p>';
-
-			echo '<a class="more" href="index.php?function=apply?id=' . $job['id'] . '">Apply for this job</a>';
-
-			echo '</div>';
-			echo '</li>';
-		}
+		return $stmt;
+	}
 
 
+
+	function getName($id){
 		$sql="SELECT name FROM category where id='$id'";
 		$stmt2=$this->pdo->prepare($sql);
 		$stmt2->execute();
@@ -60,5 +50,5 @@ class homeModel{
 		$arr=$data['0'];
 		return $arr;
 	}
+	
 }
-?>
