@@ -9,34 +9,13 @@ class homeModel{
 	}
 
 
-	function home(){
-		$arr=array('title'=>'Home','data'=>'Home Data');
-		return $arr;
-	}
-
-
-	function about(){
-		$arr=array('title'=>'About','data'=>'About Data');
-		return $arr;
-	}
-
-	function apply(){
-		$arr=array('title'=>'About','data'=>'About Data');
-		return $arr;
-	}
-
-
 	function category($id){
 		$stmt = $this->pdo->prepare("SELECT * FROM job WHERE categoryId = '$id' AND closingDate > :date");
-
 		$date = new DateTime();
-
 		$values = [
 			'date' => $date->format('Y-m-d')
 		];
-
 		$stmt->execute($values);
-
 		return $stmt;
 	}
 
