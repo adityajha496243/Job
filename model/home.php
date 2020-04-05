@@ -8,7 +8,7 @@ class homeModel{
 		}
 	}
 
-
+//For listing the jobs of the particular categories in the category pages like(it,hr,sales,etc)
 	function category($id){
 		$stmt = $this->pdo->prepare("SELECT * FROM job WHERE categoryId = '$id' AND closingDate > :date");
 		$date = new DateTime();
@@ -19,8 +19,6 @@ class homeModel{
 		return $stmt;
 	}
 
-
-
 	function getName($id){
 		$sql="SELECT name FROM category where id='$id'";
 		$stmt2=$this->pdo->prepare($sql);
@@ -29,5 +27,7 @@ class homeModel{
 		$arr=$data['0'];
 		return $arr;
 	}
+
+
 	
 }

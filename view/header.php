@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+  <?php
+  if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+    ?>
+    <link rel="stylesheet" href="../styles.css"/>
+    <?php
+  }else{
+    ?>
     <link rel="stylesheet" href="styles.css"/>
-    <title>Jo's Jobs - Home</title>
-  </head>
-  <body>
+    <?php
+  }
+  ?>
+  <title>Jo's Jobs - Home</title>
+</head>
+<body>
   <header>
     <section>
       <aside>
@@ -32,4 +42,14 @@
     </ul>
 
   </nav>
-<img src="images/randombanner.php"/>
+  <?php
+  if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+    ?>
+    <img src="../images/randombanner.php"/>
+    <?php
+  }else{
+    ?>
+    <img src="images/randombanner.php"/>
+    <?php
+  }
+  ?>
