@@ -28,6 +28,5 @@ class homeModel{
 		return $arr;
 	}
 
-
 	
 }

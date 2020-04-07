@@ -15,7 +15,7 @@
 
 			<section class="left">
 				<ul>
-					<li><a href="jobs.php">Jobs</a></li>
+					<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
 					<li><a href="index.php?login=admin&&function=categories">Categories</a></li>
 
 				</ul>

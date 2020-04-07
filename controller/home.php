@@ -10,53 +10,109 @@ class homeController{
 		$this->obj=new homeModel();
 	}
 
-	
+	/******************************************For public*******************************************/
+
+	//These function are for the home page and about page 
 	function home(){
-		include('view/header.php');
-		include('view/page.php');
-		include('view/footer.php');
+		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+			include('../view/header.php');
+			include('../view/page.php');
+			include('../view/footer.php');
+		}else{
+			include('view/header.php');
+			include('view/page.php');
+			include('view/footer.php');
+		}
 	}
+
 	function about(){
 		$this->home();
 	}
 
+	function faqs(){
+		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+			include('../view/header.php');
+			include('../view/faqs.php');
+			include('../view/footer.php');
+		}else{
+			include('view/header.php');
+			include('view/faqs.php');
+			include('view/footer.php');
+		}
+	}
 
+	//These function are for the job page which include IT, human resources, sales, etc
 	function it(){
-		$arr=$this->obj->category(1);
-		$name = $this->obj->getName(1);
-		include('view/header.php');
-		include('view/content.php');
-		include('view/footer.php');
+		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+			$arr=$this->obj->category(1);
+			$name = $this->obj->getName(1);
+			include('../view/header.php');
+			include('../view/content.php');
+			include('../view/footer.php');
+		}else{
+			$arr=$this->obj->category(1);
+			$name = $this->obj->getName(1);
+			include('view/header.php');
+			include('view/content.php');
+			include('view/footer.php');
+		}
 	}
 	function hr(){
-		$arr=$this->obj->category(2);
-		$name = $this->obj->getName(2);
-		include('view/header.php');
-		include('view/content.php');
-		include('view/footer.php');
+		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+			$arr=$this->obj->category(2);
+			$name = $this->obj->getName(2);
+			include('../view/header.php');
+			include('../view/content.php');
+			include('../view/footer.php');
+		}else{
+			$arr=$this->obj->category(3);
+			$name = $this->obj->getName(3);
+			include('view/header.php');
+			include('view/content.php');
+			include('view/footer.php');
+		}
 	}
 	function sales(){
-		$arr=$this->obj->category(4);
-		$name = $this->obj->getName(4);
-		include('view/header.php');
-		include('view/content.php');
-		include('view/footer.php');
+		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+			$arr=$this->obj->category(4);
+			$name = $this->obj->getName(4);
+			include('../view/header.php');
+			include('../view/content.php');
+			include('../view/footer.php');
+		}else{
+			$arr=$this->obj->category(4);
+			$name = $this->obj->getName(4);
+			include('view/header.php');
+			include('view/content.php');
+			include('view/footer.php');
+		}
 	}
 
-
+	//This function is for the application page
 	function apply(){
-		include('view/header.php');
-		include('view/apply.php');
-		include('view/footer.php');
+		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+			include('../view/header.php');
+			include('../view/apply.php');
+			include('../view/footer.php');
+		}else{
+			include('view/header.php');
+			include('view/apply.php');
+			include('view/footer.php');
+		}
 	}
 
-	//For admin
+
+	/*************************************************For admin********************************************/
+
+	//This function is for the admin login page
 	function adminLogin(){
 		include('../view/adminPages/dbcon.php');
 		include('../view/header.php');
 		include('../view/adminPages/adminLogin.php');
 		include('../view/footer.php');
 	}
+
+	//These function are for the categories page
 	function categories(){
 		include('../view/adminPages/dbcon.php');
 		include('../view/header.php');
@@ -82,5 +138,37 @@ class homeController{
 		include('../view/footer.php');
 	}
 
+
+	//These function are for the jobs page
+	function jobs(){
+		include('../view/adminPages/dbcon.php');
+		include('../view/header.php');
+		include('../view/adminPages/jobs.php');
+		include('../view/footer.php');
+	}
+	function addjob(){
+		include('../view/adminPages/dbcon.php');
+		include('../view/header.php');
+		include('../view/adminPages/addjob.php');
+		include('../view/footer.php');
+	}
+	function editjob(){
+		include('../view/adminPages/dbcon.php');
+		include('../view/header.php');
+		include('../view/adminPages/editjob.php');
+		include('../view/footer.php');
+	}
+	function applicants(){
+		include('../view/adminPages/dbcon.php');
+		include('../view/header.php');
+		include('../view/adminPages/applicants.php');
+		include('../view/footer.php');
+	}
+	function deletejob(){
+		include('../view/adminPages/dbcon.php');
+		include('../view/header.php');
+		include('../view/adminPages/deletejob.php');
+		include('../view/footer.php');
+	}
 }
 ?>

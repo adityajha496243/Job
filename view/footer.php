@@ -1,5 +1,5 @@
 	<footer>
-		&copy; Jo's Jobs 2017
+		&copy; Jo's Jobs <?php echo date('Y'); ?>
 	</footer>
 </body>
 </html>
