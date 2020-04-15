@@ -15,6 +15,7 @@
 
 			<section class="left">
 				<ul>
+					<li><a href="index.php?login=admin&&function=manageAdmin">Admin</a></li>
 					<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
 					<li><a href="index.php?login=admin&&function=categories">Categories</a></li>
 
@@ -29,16 +30,18 @@
 
 		else {
 			?>
-			<h2>Log in</h2>
+			<main class="sidebar">
+				<h2>Log in</h2>
 
-			<form action="index.php" method="post" style="padding: 40px">
+				<form action="index.php?login=admin&&function=adminLogin" method="post" style="padding: 40px">
 
-				<label>Enter Password</label>
-				<input type="password" name="password" />
+					<label>Enter Password</label>
+					<input type="password" name="password" />
 
-				<input type="submit" name="submit" value="Log In" />
-			</form>
-			<?php
+					<input type="submit" name="submit" value="Log In" />
+				</form>
+			</main>
+			<?php	
 		}
 		?>
 

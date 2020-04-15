@@ -15,10 +15,12 @@ class homeController{
 	//These function are for the home page and about page 
 	function home(){
 		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+			include('../view/adminPages/dbcon.php');
 			include('../view/header.php');
 			include('../view/page.php');
 			include('../view/footer.php');
 		}else{
+			include('view/adminPages/dbcon.php');
 			include('view/header.php');
 			include('view/page.php');
 			include('view/footer.php');
@@ -31,10 +33,12 @@ class homeController{
 
 	function faqs(){
 		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+			include('../view/adminPages/dbcon.php');
 			include('../view/header.php');
 			include('../view/faqs.php');
 			include('../view/footer.php');
 		}else{
+			include('view/adminPages/dbcon.php');
 			include('view/header.php');
 			include('view/faqs.php');
 			include('view/footer.php');
@@ -42,46 +46,52 @@ class homeController{
 	}
 
 	//These function are for the job page which include IT, human resources, sales, etc
-	function it(){
+	function IT(){
 		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
 			$arr=$this->obj->category(1);
 			$name = $this->obj->getName(1);
+			include('../view/adminPages/dbcon.php');
 			include('../view/header.php');
 			include('../view/content.php');
 			include('../view/footer.php');
 		}else{
 			$arr=$this->obj->category(1);
 			$name = $this->obj->getName(1);
+			include('view/adminPages/dbcon.php');
 			include('view/header.php');
 			include('view/content.php');
 			include('view/footer.php');
 		}
 	}
-	function hr(){
+	function HumanResources(){
 		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
 			$arr=$this->obj->category(2);
 			$name = $this->obj->getName(2);
+			include('../view/adminPages/dbcon.php');
 			include('../view/header.php');
 			include('../view/content.php');
 			include('../view/footer.php');
 		}else{
-			$arr=$this->obj->category(3);
-			$name = $this->obj->getName(3);
+			$arr=$this->obj->category(2);
+			$name = $this->obj->getName(2);
+			include('view/adminPages/dbcon.php');
 			include('view/header.php');
 			include('view/content.php');
 			include('view/footer.php');
 		}
 	}
-	function sales(){
+	function Sales(){
 		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
 			$arr=$this->obj->category(4);
 			$name = $this->obj->getName(4);
+			include('../view/adminPages/dbcon.php');
 			include('../view/header.php');
 			include('../view/content.php');
 			include('../view/footer.php');
 		}else{
 			$arr=$this->obj->category(4);
 			$name = $this->obj->getName(4);
+			include('view/adminPages/dbcon.php');
 			include('view/header.php');
 			include('view/content.php');
 			include('view/footer.php');
@@ -91,10 +101,12 @@ class homeController{
 	//This function is for the application page
 	function apply(){
 		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+			include('../view/adminPages/dbcon.php');
 			include('../view/header.php');
 			include('../view/apply.php');
 			include('../view/footer.php');
 		}else{
+			include('view/adminPages/dbcon.php');
 			include('view/header.php');
 			include('view/apply.php');
 			include('view/footer.php');
@@ -103,6 +115,29 @@ class homeController{
 
 
 	/*************************************************For admin********************************************/
+	function register(){
+		if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+			include('../view/adminPages/dbcon.php');
+			include('../view/header.php');
+			include('../view/adminPages/adminRegister.php');
+			include('../view/footer.php');
+		}else{
+			include('view/adminPages/dbcon.php');
+			include('view/header.php');
+			include('view/adminPages/clientRegister.php');
+			include('view/footer.php');
+		}
+	}
+	function login(){
+		include('view/adminPages/dbcon.php');
+		include('view/header.php');
+		include('view/adminPages/login.php');
+		include('view/footer.php');
+	}
+	function logout(){
+		include('../view/adminPages/Logout.php');
+	}
+
 
 	//This function is for the admin login page
 	function adminLogin(){
@@ -168,6 +203,20 @@ class homeController{
 		include('../view/adminPages/dbcon.php');
 		include('../view/header.php');
 		include('../view/adminPages/deletejob.php');
+		include('../view/footer.php');
+	}
+
+	//These function are for the user manage page
+	function manageAdmin(){
+		include('../view/adminPages/dbcon.php');
+		include('../view/header.php');
+		include('../view/adminPages/manageAdmin.php');
+		include('../view/footer.php');
+	}
+	function deleteAdmin(){
+		include('../view/adminPages/dbcon.php');
+		include('../view/header.php');
+		include('../view/adminPages/deleteAdmin.php');
 		include('../view/footer.php');
 	}
 }

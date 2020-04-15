@@ -22,6 +22,17 @@
         <p>Mon-Fri: 09:00-17:30</p>
         <p>Sat: 09:00-17:00</p>
         <p>Sun: Closed</p>
+        <?php
+        if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+        ?>
+          <p><a href="index.php?login=admin&&function=logout">Logout</a></p>
+        <?php
+        }else{
+        ?>
+          <p><a href="index.php?function=register">Account</a></p>
+        <?php
+        }
+        ?>
       </aside>
       <h1>Jo's Jobs</h1>
 
@@ -36,33 +47,44 @@
         if(isset($_GET["login"]) && $_GET["login"]=="admin"){
           ?>
           <ul>
-            <li><a href="index.php?login=admin&&function=it">IT</a></li>
-            <li><a href="index.php?login=admin&&function=hr">Human Resources</a></li>
-            <li><a href="index.php?login=admin&&function=sales">Sales</a></li>
-          </ul>
-        </li>
+            <?php 
+            $categories = $pdo->query('SELECT * FROM category');
 
-        <li> <a href="index.php?login=admin&&function=about">About Us</a> </li>
+            foreach ($categories as $category) {
+             ?> <li><a href="index.php?login=admin&&function=<?php echo str_replace( ' ', '', $category['name'] ) ?>"><?php echo $category['name'] ?></a></li>
+             <?php
+           }
+           ?>
+           
+         </ul>
+       </li>
 
-        <li> <a href="index.php?login=admin&&function=faqs">FAQs</a> </li>
+       <li> <a href="index.php?login=admin&&function=about">About Us</a> </li>
 
-      </ul>
-      <?php
-    }else{
-      ?>
-      <ul>
-        <li><a href="index.php?function=it">IT</a></li>
-        <li><a href="index.php?function=hr">Human Resources</a></li>
-        <li><a href="index.php?function=sales">Sales</a></li>
-      </ul>
-    </li>
+       <li> <a href="index.php?login=admin&&function=faqs">FAQs</a> </li>
 
-    <li> <a href="index.php?function=about">About Us</a> </li>
+     </ul>
+     <?php
+   }else{
+    ?>
+    <ul>
+      <?php 
+      $categories = $pdo->query('SELECT * FROM category');
 
-    <li> <a href="index.php?function=faqs">FAQs</a> </li>
-  </ul>
+      foreach ($categories as $category) {
+       ?> <li><a href="index.php?function=<?php echo str_replace( ' ', '', $category['name'] ) ?>"><?php echo $category['name'] ?></a></li>
+       <?php
+     }
+     ?>
+   </ul>
+ </li>
 
-  <?php
+ <li> <a href="index.php?function=about">About Us</a> </li>
+
+ <li> <a href="index.php?function=faqs">FAQs</a> </li>
+</ul>
+
+<?php
 }
 ?>
 </nav>

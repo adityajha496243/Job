@@ -5,7 +5,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	$stmt->execute(['id' => $_POST['id']]);
 
 
-	header('location: categories.php');
+	header('location: index.php?login=admin&&function=categories');
 }
 
 

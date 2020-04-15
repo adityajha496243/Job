@@ -2,6 +2,7 @@
 
 		<section class="left">
 			<ul>
+				<li><a href="index.php?login=admin&&function=manageAdmin">Admin</a></li>
 				<li><a href="jobs.php">Jobs</a></li>
 				<li><a href="categories.php">Categories</a></li>
 

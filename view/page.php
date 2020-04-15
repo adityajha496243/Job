@@ -3,9 +3,9 @@
 
 		<h2>Select the type of job you are looking for:</h2>
 		<ul>
-					<li><a href="index.php?function=it">IT</a></li>
-					<li><a href="index.php?function=hr">Human Resources</a></li>
-					<li><a href="index.php?function=sales">Sales</a></li>
+					<li><a href="index.php?function=IT">IT</a></li>
+					<li><a href="index.php?function=HumanResources">Human Resources</a></li>
+					<li><a href="index.php?function=Sales">Sales</a></li>
 
 				</ul>
 			</li>

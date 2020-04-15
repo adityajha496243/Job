@@ -2,6 +2,7 @@
 
 	<section class="left">
 		<ul>
+			<li><a href="index.php?login=admin&&function=manageAdmin">Admin</a></li>
 			<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
 			<li><a href="index.php?login=admin&&function=categories">Categories</a></li>
 
@@ -39,7 +40,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 			<h2>Add Job</h2>
 
-			<form action="addjob.php" method="POST"">
+			<form action="" method="POST"">
 				<label>Title</label>
 				<input type="text" name="title" />
 
