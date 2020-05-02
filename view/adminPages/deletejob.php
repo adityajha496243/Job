@@ -6,7 +6,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	$stmt->execute(['id' => $_POST['id']]);
 
 
-	header('index.php?login=admin&&function=jobs');
+	header("location:index.php?login=admin&&function=jobs");
 }
 
 

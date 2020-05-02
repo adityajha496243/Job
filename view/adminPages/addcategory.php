@@ -2,32 +2,24 @@
 
 		<section class="left">
 			<ul>
-				<li><a href="index.php?login=admin&&function=manageAdmin">Admin</a></li>
-				<li><a href="jobs.php">Jobs</a></li>
-				<li><a href="categories.php">Categories</a></li>
+				<li><a href="index.php?login=admin&&function=manageUser">Manage User</a></li>
+				<li><a href="index.php?login=admin&&function=categories">Categories</a></li>
+				<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
+				<li><a href="index.php?login=admin&&function=recycle">Recycled Jobs</a></li>
+				<li><a href="index.php?login=admin&&function=enquiry">Enquries</a></li>
+				
 
 			</ul>
 		</section>
 
 		<section class="right">
-
+			<div id="right_message"></div>
 			<?php
 
 			if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 
-				if (isset($_POST['submit'])) {
-
-					$stmt = $pdo->prepare('INSERT INTO category (name) VALUES (:name)');
-
-					$criteria = [
-						'name' => $_POST['name']
-					];
-
-					$stmt->execute($criteria);
-					echo 'Category added';
-				}
-				else {
+				if (!isset($_POST['submit'])) {
 					?>
 
 

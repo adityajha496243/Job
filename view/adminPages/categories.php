@@ -2,9 +2,11 @@
 
 		<section class="left">
 			<ul>
-				<li><a href="index.php?login=admin&&function=manageAdmin">Admin</a></li>
-				<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
+				<li><a href="index.php?login=admin&&function=manageUser">Manage User</a></li>
 				<li><a href="index.php?login=admin&&function=categories">Categories</a></li>
+				<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
+				<li><a href="index.php?login=admin&&function=recycle">Recycled Jobs</a></li>
+				<li><a href="index.php?login=admin&&function=enquiry">Enquries</a></li>
 
 			</ul>
 		</section>
@@ -49,16 +51,7 @@
 			}
 
 			else {
-				?>
-				<h2>Log in</h2>
-
-				<form action="index.php" method="post">
-					<label>Password</label>
-					<input type="password" name="password" />
-
-					<input type="submit" name="submit" value="Log In" />
-				</form>
-				<?php
+				header("Location:index.php?function=login");
 			}
 			?>
 

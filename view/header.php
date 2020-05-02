@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
   <?php
   if(isset($_GET["login"]) && $_GET["login"]=="admin"){
     ?>
@@ -63,6 +64,8 @@
 
        <li> <a href="index.php?login=admin&&function=faqs">FAQs</a> </li>
 
+       <li> <a href="index.php?login=admin&&function=contact">Contact</a> </li>
+
      </ul>
      <?php
    }else{
@@ -82,6 +85,9 @@
  <li> <a href="index.php?function=about">About Us</a> </li>
 
  <li> <a href="index.php?function=faqs">FAQs</a> </li>
+
+ <li> <a href="index.php?function=contact">Contact</a> </li>
+
 </ul>
 
 <?php

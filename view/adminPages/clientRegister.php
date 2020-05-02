@@ -1,19 +1,23 @@
 <main class="sidebar">
 
-	<h2>Registation</h2>
+	<section class="right">
 
-	<form action="../view/adminPages/clientRegisterProcess.php" method="post">
+		<h2>Registation</h2>
 
-		<label>Username</label>
-		<input type="text" class="input" name="name" required>
+		<form action="../view/adminPages/clientRegisterProcess.php" method="post">
 
-		<label>Enter Password</label>
-		<input type="password" class="input" name="password" required>
+			<label>Username</label>
+			<input type="text" class="input" name="name" required>
 
-		<input type="submit" value="Register" name="submit">
+			<label>Enter Password</label>
+			<input type="password" class="input" name="password" required>
 
-		<label><a href="index.php?function=login">Already have an account ?</a></label>
-		
-	</form>
+			<input type="submit" value="Register" name="submit">
+
+			<label><a href="index.php?function=login">Already have an account ?</a></label>
+			
+		</form>
+
+	</section>
 
 </main>

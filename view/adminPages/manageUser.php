@@ -1,9 +1,11 @@
 	<main class="sidebar">
 		<section class="left">
 			<ul>
-				<li><a href="index.php?login=admin&&function=manageAdmin">Admin</a></li>
-				<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
+				<li><a href="index.php?login=admin&&function=manageUser">Manage User</a></li>
 				<li><a href="index.php?login=admin&&function=categories">Categories</a></li>
+				<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
+				<li><a href="index.php?login=admin&&function=recycle">Recycled Jobs</a></li>
+				<li><a href="index.php?login=admin&&function=enquiry">Enquries</a></li>
 
 			</ul>
 		</section>
@@ -19,7 +21,7 @@
 
 				<h2>Users</h2>
 
-				<a class="new" href="index.php?login=admin&&function=register">Add Admin</a><br><br>
+				<a class="new" href="index.php?login=admin&&function=register">Add User</a><br><br>
 				
 				<div id="tableContainer">
 
@@ -29,6 +31,8 @@
 					echo '<thead>';
 					echo '<tr>';
 					echo '<th>Name</th>';
+					echo '<th>Type</th>';
+					echo '<th style="width: 5%">&nbsp;</th>';
 					echo '<th style="width: 5%">&nbsp;</th>';
 					echo '</tr>';
 
@@ -37,7 +41,9 @@
 					foreach ($multiusers as $multiuser) {
 						echo '<tr>';
 						echo '<td>' . $multiuser['username'] . '</td>';
-						echo '<td><form method="post" action="index.php?login=admin&&function=deleteAdmin">
+						echo '<td>' . $multiuser['usertype'] . '</td>';
+						echo '<td><a style="float: right" href="index.php?login=admin&&function=editUser&&id=' . $multiuser['id'] . '">Edit</a></td>';
+						echo '<td><form method="post" action="index.php?login=admin&&function=deleteUser">
 						<input type="hidden" name="id" value="' . $multiuser['id'] . '" />
 						<input type="submit" name="submit" value="Delete" />
 						</form></td>';
@@ -49,16 +55,7 @@
 				}
 
 				else {
-					?>
-					<h2>Log in</h2>
-
-					<form action="index.php" method="post">
-						<label>Password</label>
-						<input type="password" name="password" />
-
-						<input type="submit" name="submit" value="Log In" />
-					</form>
-					<?php
+					header("Location:index.php?function=login");
 				}
 				?>
 

@@ -15,9 +15,11 @@
 
 			<section class="left">
 				<ul>
-					<li><a href="index.php?login=admin&&function=manageAdmin">Admin</a></li>
-					<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
+					<li><a href="index.php?login=admin&&function=manageUser">Manage User</a></li>
 					<li><a href="index.php?login=admin&&function=categories">Categories</a></li>
+					<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
+					<li><a href="index.php?login=admin&&function=recycle">Recycled Jobs</a></li>
+					<li><a href="index.php?login=admin&&function=enquiry">Enquries</a></li>
 
 				</ul>
 			</section>

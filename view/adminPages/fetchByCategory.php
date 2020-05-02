@@ -6,6 +6,7 @@ if(isset($_POST['request'])){
 	echo '<tr>';
 	echo '<th>Title</th>';
 	echo '<th style="width: 15%">Salary</th>';
+	echo '<th style="width: 15%">Location</th>';
 	echo '<th style="width: 15%">Category</th>';
 	echo '<th style="width: 15%">Visiblity</th>';
 	echo '<th style="width: 5%">&nbsp;</th>';
@@ -32,6 +33,8 @@ if(isset($_POST['request'])){
 		echo '<tr>';
 		echo '<td>' . $job['title'] . '</td>';
 		echo '<td>' . $job['salary'] . '</td>';
+		echo '<td>' . $job['location'] . '</td>';
+
 		$query = $pdo->prepare("SELECT name FROM category where id=".$job['categoryId']);
 		$query->execute();
 		$name = $query->fetch();

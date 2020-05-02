@@ -28,5 +28,26 @@ class homeModel{
 		return $arr;
 	}
 
+	function insert($table, $record) {
+		$keys = array_keys($record);
+		$values = implode(', ', $keys);
+		$valuesWithColon = implode(', :', $keys);
+		$query = 'INSERT INTO ' . $table . ' (' . $values . ') VALUES (:' . $valuesWithColon . ')';
+		$stmt = $this->pdo->prepare($query);
+		$stmt->execute($record);
+	}
+
+	function update($table, $record, $primaryKey) {
+		$query = 'UPDATE ' . $table . ' SET ';
+		$parameters = [];
+		foreach ($record as $key => $value) {
+			$parameters[] = $key . ' = :' .$key;
+		}
+		$query .= implode(', ', $parameters);
+		$query .= ' WHERE ' . $primaryKey . ' = :primaryKey';
+		$record['primaryKey'] = $record[$primaryKey];
+		$stmt = $this->pdo->prepare($query);
+		$stmt->execute($record);
+	}
 	
 }

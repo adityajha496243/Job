@@ -7,7 +7,7 @@
 		<label>Select user type:</label> 
 		<select name="usertype">
 			<option value="admin">admin</option>
-			<option value="user">user</option>
+			<option value="client">client</option>
 		</select>
 
 		<label>Username</label>

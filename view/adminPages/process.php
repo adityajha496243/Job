@@ -20,16 +20,13 @@ if(isset($_POST['submit'])){
 		$_SESSION["usertype"]= $row['usertype'];
 		session_write_close();
 		if ($row['usertype']=="admin") {
-			//echo "admin";
 			header("Location:../../admin/index.php?login=admin&&function=categories");
 		}
 		else{
-			//echo "user";
 			header("Location:../../admin/index.php?login=admin&&function=jobs");
 		}
 		
 	}else{
-		//echo "not";
 		header("Location:../../admin/index.php?login=admin&&function=login");
 	}
 }
