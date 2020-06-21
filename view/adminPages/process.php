@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
 	$stmt->execute(array('name' => $name));
 
 	$row = $stmt->fetch();
-	echo $row['username'];
+	//echo $row['username'];
 	if(password_verify($password,$row['password'] )){
 		
 		session_regenerate_id(true);
@@ -20,18 +20,20 @@ if(isset($_POST['submit'])){
 		$_SESSION["usertype"]= $row['usertype'];
 		session_write_close();
 		if ($row['usertype']=="admin") {
+			//$_SESSION['loggedin'] = true;
 			header("Location:../../admin/index.php?login=admin&&function=categories");
 		}
 		else{
+			//echo "world hello";
 			header("Location:../../admin/index.php?login=admin&&function=jobs");
 		}
 		
 	}else{
-		header("Location:../../admin/index.php?login=admin&&function=login");
+		header("Location:../../admin/index.php?function=login");
 	}
 }
 else{
-	echo"you post method is not send.please check the form again hawa";
+	echo"Something went wrong.";
 }
 
 

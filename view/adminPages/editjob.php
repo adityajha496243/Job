@@ -1,14 +1,6 @@
 	<main class="sidebar">
 
-		<section class="left">
-			<ul>
-				<li><a href="index.php?login=admin&&function=manageUser">Manage User</a></li>
-				<li><a href="index.php?login=admin&&function=categories">Categories</a></li>
-				<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
-				<li><a href="index.php?login=admin&&function=recycle">Recycled Jobs</a></li>
-				<li><a href="index.php?login=admin&&function=enquiry">Enquries</a></li>
-			</ul>
-		</section>
+		<?php include('sidebar.php'); ?>
 
 		<section class="right">
 			<div id="right_message"></div>
@@ -17,7 +9,7 @@
 
 
 			if (!isset($_POST['submit'])) {
-				if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+				if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true || isset($_SESSION["usertype"]) && $_SESSION["usertype"] == "client" || $_SESSION["usertype"] == "admin") {
 
 					$stmt = $pdo->prepare('SELECT * FROM job WHERE id = :id');
 
@@ -67,21 +59,6 @@
 
 						<label>Closing Date</label>
 						<input type="date" name="closingDate" value="<?php echo $job['closingDate']; ?>"  />
-
-						<label>Visiblity</label>
-
-						
-						<select name="visiblity">
-							<?php
-							if($job['visiblity'] == 0){
-								echo "<option value='0'>Not Archive</option>";
-								echo "<option value='1'>Archive</option>";
-							}else{
-								echo "<option value='1'>Archive</option>";
-								echo "<option value='0'>Not Archive</option>";
-							}
-							?>
-						</select><br>
 						
 
 						<input type="submit" name="submit" value="Save" />

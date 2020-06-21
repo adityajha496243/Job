@@ -1,13 +1,6 @@
 	<main class="sidebar">
 
-		<section class="left">
-			<ul>
-				<li><a href="index.php?login=admin&&function=manageUser">Manage User</a></li>
-				<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
-				<li><a href="index.php?login=admin&&function=categories">Categories</a></li>
-
-			</ul>
-		</section>
+		<?php include('sidebar.php'); ?>
 
 		<section class="right">
 			<div id="right_message"></div>
@@ -16,7 +9,7 @@
 
 
 			if (!isset($_POST['submit'])) {
-				if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+				if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true || isset($_SESSION["usertype"]) && $_SESSION["usertype"] == "client" || $_SESSION["usertype"] == "admin") {
 
 					$stmt = $pdo->prepare('SELECT * FROM multiuserlogin WHERE id = :id');
 

@@ -374,6 +374,20 @@ class homeController{
 		include('../view/footer.php');
 	}
 
+	function jobRestore(){
+		include('../view/adminPages/dbcon.php');
+		include('../view/header.php');
+		include('../view/adminPages/jobRestore.php');
+		include('../view/footer.php');
+	}
+
+	function jobRecycle(){
+		include('../view/adminPages/dbcon.php');
+		include('../view/header.php');
+		include('../view/adminPages/jobRecycle.php');
+		include('../view/footer.php');
+	}
+
 
 	//These function are for the user manage page
 	function manageUser(){
@@ -421,10 +435,17 @@ class homeController{
 		include('../view/footer.php');
 	}
 
-	function enquirystatus(){
+	function enquirystatustocomplete(){
 		include('../view/adminPages/dbcon.php');
 		include('../view/header.php');
-		include('../view/adminPages/enquirystatus.php');
+		include('../view/adminPages/enquirystatustocomplete.php');
+		include('../view/footer.php');
+	}
+
+	function enquirystatustonotcomplete(){
+		include('../view/adminPages/dbcon.php');
+		include('../view/header.php');
+		include('../view/adminPages/enquirystatustonotcomplete.php');
 		include('../view/footer.php');
 	}
 

@@ -1,3 +1,7 @@
+<?php
+if(!isset($_SESSION))
+  session_start(); 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,13 +28,13 @@
         <p>Sat: 09:00-17:00</p>
         <p>Sun: Closed</p>
         <?php
-        if(isset($_GET["login"]) && $_GET["login"]=="admin"){
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true || isset($_SESSION["usertype"]) && $_SESSION["usertype"] == "client" || isset($_SESSION["usertype"]) && $_SESSION["usertype"] == "admin"){
         ?>
           <p><a href="index.php?login=admin&&function=logout">Logout</a></p>
         <?php
         }else{
         ?>
-          <p><a href="index.php?function=register">Account</a></p>
+          <p><a href="?function=register">Account</a></p>
         <?php
         }
         ?>
@@ -64,7 +68,19 @@
 
        <li> <a href="index.php?login=admin&&function=faqs">FAQs</a> </li>
 
-       <li> <a href="index.php?login=admin&&function=contact">Contact</a> </li>
+       
+
+
+       <?php
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true || isset($_SESSION["usertype"]) && $_SESSION["usertype"] == "client" || isset($_SESSION["usertype"]) && $_SESSION["usertype"] == "admin"){
+        ?>
+        <?php
+        }else{
+        ?>
+          <li> <a href="index.php?login=admin&&function=contact">Contact</a> </li>
+        <?php
+        }
+        ?>
 
      </ul>
      <?php

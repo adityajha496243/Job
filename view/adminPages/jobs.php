@@ -1,22 +1,14 @@
 
 	<main class="sidebar">
-				<section class="left">
-			<ul>
-				<li><a href="index.php?login=admin&&function=manageUser">Manage User</a></li>
-				<li><a href="index.php?login=admin&&function=categories">Categories</a></li>
-				<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
-				<li><a href="index.php?login=admin&&function=recycle">Recycled Jobs</a></li>
-				<li><a href="index.php?login=admin&&function=enquiry">Enquries</a></li>
 
-			</ul>
-		</section>
+		<?php include('sidebar.php'); ?>
 
 		<section class="right">
 
 			<?php
 
 
-			if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+			if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true || isset($_SESSION["usertype"]) && $_SESSION["usertype"] == "client" || $_SESSION["usertype"] == "admin" )   {
 				?>
 
 
@@ -61,15 +53,21 @@
 					echo '<th style="width: 15%">Salary</th>';
 					echo '<th style="width: 15%">Location</th>';
 					echo '<th style="width: 15%">Category</th>';
-					echo '<th style="width: 15%">Visiblity</th>';
 					echo '<th style="width: 5%">&nbsp;</th>';
 					echo '<th style="width: 15%">&nbsp;</th>';
 					echo '<th style="width: 5%">&nbsp;</th>';
 					echo '<th style="width: 5%">&nbsp;</th>';
 					echo '</tr>';
 
-					$stmt = $pdo->query('SELECT * FROM job');
+					/*$aaddedBy = $_SESSION["sess_name"];
+					if ($_SESSION["usertype"] == "client")   {
+						$stmt = $pdo->query('SELECT * FROM job WHERE visiblity = 0 && addedBy = "$addedBy"');
 
+					}else{
+							$stmt = $pdo->query('SELECT * FROM job WHERE visiblity = 0');
+						}*/
+
+					$stmt = $pdo->query('SELECT * FROM job WHERE visiblity = 0');
 
 					foreach ($stmt as $job) {
 						$applicants = $pdo->prepare('SELECT count(*) as count FROM applicants WHERE jobId = :jobId');
@@ -86,12 +84,11 @@
 						$name = $this->obj->getName($job['categoryId']);
 						echo '<td>' . $name['name'] . '</td>';
 
-						if($job['visiblity'] == 0){echo '<td>' . "Not Archived" . '</td>';} else{echo '<td>' . "Archived" . '</td>';}
 						echo '<td><a style="float: right" href="index.php?login=admin&&function=editjob&&id=' . $job['id'] . '">Edit</a></td>';
 						echo '<td><a style="float: right" href="index.php?login=admin&&function=applicants&&id=' . $job['id'] . '">View applicants (' . $applicantCount['count'] . ')</a></td>';
-						echo '<td><form method="post" action="index.php?login=admin&&function=deletejob">
+						echo '<td><form method="post" action="index.php?login=admin&&function=jobRecycle">
 						<input type="hidden" name="id" value="' . $job['id'] . '" />
-						<input type="submit" name="submit" value="Delete" />
+						<input type="submit" name="submit" value="Recycle" />
 						</form></td>';
 						echo '</tr>';
 					}

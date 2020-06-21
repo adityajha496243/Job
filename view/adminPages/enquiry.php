@@ -1,21 +1,12 @@
 	<main class="sidebar">
 
-		<section class="left">
-			<ul>
-				<li><a href="index.php?login=admin&&function=manageUser">Manage User</a></li>
-				<li><a href="index.php?login=admin&&function=categories">Categories</a></li>
-				<li><a href="index.php?login=admin&&function=jobs">Jobs</a></li>
-				<li><a href="index.php?login=admin&&function=recycle">Recycled Jobs</a></li>
-				<li><a href="index.php?login=admin&&function=enquiry">Enquries</a></li>
-
-			</ul>
-		</section>
+		<?php include('sidebar.php'); ?>
 
 		<section class="right">
 
 			<?php
 
-			if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+			if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true || isset($_SESSION["usertype"]) && $_SESSION["usertype"] == "client" || $_SESSION["usertype"] == "admin") {
 				?>
 
 
@@ -51,9 +42,17 @@
 					}
 					
 					if($enquiry['status'] == 0){
-						echo '<td><form method="post" action="index.php?login=admin&&function=enquirystatus">
+						echo '<td><form method="post" action="index.php?login=admin&&function=enquirystatustocomplete">
 						<input type="hidden" name="id" value="' . $enquiry['id'] . '" />
 						<input type="submit" name="submit" value="Complete" />
+						</form></td>';
+						echo '</tr>';
+					}
+
+					if($enquiry['status'] == 1){
+						echo '<td><form method="post" action="index.php?login=admin&&function=enquirystatustonotcomplete">
+						<input type="hidden" name="id" value="' . $enquiry['id'] . '" />
+						<input type="submit" name="submit" value="Not Complete" />
 						</form></td>';
 						echo '</tr>';
 					}

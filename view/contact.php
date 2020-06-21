@@ -10,7 +10,13 @@
 
 				<h2>Contact Us</h2>
 
-				<form action="index.php?login=admin&&function=contact" method="POST" enctype="multipart/form-data">
+				<form <?php if(isset($_GET["login"]) && $_GET["login"]=="admin"){?>
+							action="index.php?login=admin&&function=contact" 
+					  <?php }else{ ?> 
+							action="index.php?function=contact" 
+					  <?php } ?> 
+							method="POST" enctype="multipart/form-data">
+							
 					<label>Your name</label>
 					<input type="text" name="name" />
 

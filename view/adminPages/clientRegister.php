@@ -4,7 +4,7 @@
 
 		<h2>Registation</h2>
 
-		<form action="../view/adminPages/clientRegisterProcess.php" method="post">
+		<form action="../jobs2/view/adminPages/clientRegisterProcess.php" method="post">
 
 			<label>Username</label>
 			<input type="text" class="input" name="name" required>

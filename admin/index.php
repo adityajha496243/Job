@@ -29,6 +29,7 @@ if(isset($_GET["login"])){
 	}
 }
 else{
+	//echo "hello world";
 	header("location:index.php?login=admin");
 }
 ?>
