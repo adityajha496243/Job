@@ -24,7 +24,10 @@ class homeModel{
 		$stmt2=$this->pdo->prepare($sql);
 		$stmt2->execute();
 		$data=$stmt2->fetchAll(PDO::FETCH_ASSOC);
-		$arr=$data['0'];
+		if(!empty($data))
+			$arr=$data['0'];
+		else
+			$arr = ['name'=>""];
 		return $arr;
 	}
 

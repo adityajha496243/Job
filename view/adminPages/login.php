@@ -14,6 +14,6 @@
 			<input type="submit" name="submit" value="submit" />
 		</form>
 		
-		<br><br><br><br><br><br><br><br><br><br><br><label><a href="index.php?login=admin&&function=register">Does not have account ?</a></label>
+		<br><br><br><br><br><br><br><br><br><br><br><label><a href="index.php?function=register">Does not have account ?</a></label>
 	</section>
 </main>

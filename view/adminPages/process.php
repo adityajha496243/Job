@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
 		}
 		
 	}else{
-		header("Location:../../admin/index.php?function=login");
+		header("Location:../../index.php?function=login");
 	}
 }
 else{

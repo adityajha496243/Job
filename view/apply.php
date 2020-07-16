@@ -38,7 +38,7 @@
 					<label>CV</label>
 					<input type="file" name="cv" />
 
-					<input type="hidden" name="jobId" value="<?=$job['id'];?>" />
+					<input type="hidden" name="jobId" value="<?=$value['id'];?>" />
 
 					<input type="submit" name="submit" value="Apply" />
 

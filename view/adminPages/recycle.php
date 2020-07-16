@@ -106,7 +106,7 @@
 	function fetchByCategory(){
 		var categoryId = document.getElementById("categoryid").value;
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("POST","../view/adminpages/fetchByCategory.php",true);
+		xmlhttp.open("POST","../view/adminpages/fetchByCategoryRecycle.php",true);
      	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     	xmlhttp.onreadystatechange = function() {
      		if (this.readyState == 4 && this.status == 200){
@@ -120,7 +120,7 @@
 	function fetchByLocation(){
 		var location = document.getElementById("location").value;
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("POST","../view/adminpages/fetchByLocation.php",true);
+		xmlhttp.open("POST","../view/adminpages/fetchByLocationRecycle.php",true);
      	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     	xmlhttp.onreadystatechange = function() {
      		if (this.readyState == 4 && this.status == 200){

@@ -189,7 +189,7 @@ class homeController{
 				}
 				try {
 					$this->obj->insert('applicants', $criteria);
-					echo "<script> document.getElementById('right_message').innerHTML = 'Your application is complete. We will contact you after the closing date.'; </script>";
+					echo "<script> document.getElementById('right_message').innerHTML = 'Your application is submitted. We will contact you as soon as possible.'; </script>";
 				}catch (Exception $e) {
 					echo "<script> document.getElementById('right_message').innerHTML = 'There was an error uploading your CV';	</script>";
 				}
@@ -306,6 +306,13 @@ class homeController{
 		include('../view/adminPages/addjob.php');
 
 		if (isset($_POST['submit'])) {
+			if (!isset($_SESSION)) {
+				session_start();
+				
+			}
+			
+			$addedBy = $_SESSION['id'];
+			
 			$criteria = [
 				'title' => $_POST['title'],
 				'description' => $_POST['description'],
@@ -313,6 +320,8 @@ class homeController{
 				'location' => $_POST['location'],
 				'categoryId' => $_POST['categoryId'],
 				'closingDate' => $_POST['closingDate'],
+				'addedBy' => $addedBy,
+
 			];
 			try {
 				$this->obj->insert('job', $criteria);
@@ -338,7 +347,6 @@ class homeController{
 				'location' => $_POST['location'],
 				'categoryId' => $_POST['categoryId'],
 				'closingDate' => $_POST['closingDate'],
-				'visiblity' => $_POST['visiblity'],
 				'id' => $_POST['id']
 			];
 
