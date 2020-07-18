@@ -37,7 +37,12 @@ class homeModel{
 		$valuesWithColon = implode(', :', $keys);
 		$query = 'INSERT INTO ' . $table . ' (' . $values . ') VALUES (:' . $valuesWithColon . ')';
 		$stmt = $this->pdo->prepare($query);
-		$stmt->execute($record);
+		$insert = $stmt->execute($record);
+		if ($insert) {
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	function update($table, $record, $primaryKey) {
